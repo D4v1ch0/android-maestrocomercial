@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_main">#3495C4</color> 
+    <color name="bg_secondary">#727376</color> 
+    <color name="bg_nav_drawer">#3A3A3C</color>  
+    <color name="nav_item_text">#FFFFFF</color>
+    <color name="nav_item_text_group">#FFFFFF</color>    
+    <color name="bg_selected_nav_drawer_list_item">#3495C4</color>    
+    <color name="nav_item_divider">#454547</color>
+    <color name="bg_button_bg_main">#727376</color>
+    <color name="bg_button_bg_main_pressed">#FF7F27</color>
+    <color name="bg_highlight_title">#3495C4</color>
+    <color name="highlight_title">#FFFFFF</color>
+    <color name="guide_section_title">#727376</color>    
+    <color name="bg_brand">#ef3123</color>
+    <color name="chart1">#ef3123</color>
+    <color name="chart2">#3495C4</color>        
+</resources>

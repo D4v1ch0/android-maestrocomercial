@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/pe.com.maestro.commercial" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            >
+
+            <FrameLayout
+                android:layout_width="@dimen/input_query_client_width"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" >
+
+                <include layout="@layout/layout_document_input_search"
+                    >
+                </include>
+                
+            </FrameLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            >
+
+            <rp3.widget.NumberPad
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:targetView="@+id/textView_client_document_id" >
+            </rp3.widget.NumberPad>
+        </FrameLayout>
+    </LinearLayout>
+
+</merge>

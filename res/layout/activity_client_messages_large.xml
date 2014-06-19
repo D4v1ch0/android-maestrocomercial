@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Widget.TextView.Highlight.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_highlight_title"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/label_client_data"
+            android:textColor="@color/highlight_title" />
+
+        <FrameLayout
+            android:id="@+id/content_client_view_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:paddingBottom="12dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_title_client_attention"
+                    style="@style/Widget.TextView.Highlight.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_highlight_title"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/title_header_list_message"
+                    android:textColor="@color/highlight_title" />
+
+                <FrameLayout
+                    android:id="@+id/content_client_message_attention"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingBottom="12dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_title_financial_product"
+                    style="@style/Widget.TextView.Highlight.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_highlight_title"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/title_header_list_message"
+                    android:textColor="@color/highlight_title" />
+
+                <FrameLayout
+                    android:id="@+id/content_client_message_financial_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:paddingBottom="12dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_title_client_messages"
+                    style="@style/Widget.TextView.Highlight.Medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bg_highlight_title"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/title_header_list_message"
+                    android:textColor="@color/highlight_title" />
+
+                <FrameLayout
+                    android:id="@+id/content_client_message_alerts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>

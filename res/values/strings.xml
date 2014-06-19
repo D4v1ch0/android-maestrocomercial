@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Maestro Comercial</string>
+	<string name="label_store_select">Seleccione una Tienda</string>
+	
+	<string name="hint_period_select">Seleccione un Periodo</string>	
+	<string name="hint_default_select_element">[Selección]</string>
+	
+	<string name="label_see">Ver</string>
+	<string name="label_more_info">Más Información</string>
+	<string name="label_guide_section">Secciones</string>
+	<string name="label_goalType_filter">Ratio</string>
+	<string name="label_firstName">Primer Nombre</string>
+	<string name="label_middleName">Segundo Nombre</string>
+	<string name="label_lastName">Apellido Paterno</string>
+	<string name="label_secondLastName">Apellido Materno</string>
+	<string name="label_email">Email</string>	
+	<string name="label_phoneNumber">Teléfono</string>
+	<string name="label_cellphone">Celular</string>
+	<string name="label_phoneNumber2">Teléfono 2</string>
+	<string name="label_cellphone2">Celular 2</string>
+	<string name="label_province">Provincia</string>
+	<string name="label_distritc">Distrito</string>
+	<string name="label_department">Departamento</string>
+	<string name="label_birthdate">Fecha Nacimiento</string>
+	<string name="label_client_data">DATOS DEL CLIENTE</string>
+	
+	<string name="label_client_personal_data">Datos Personales</string>
+	<string name="label_client_address_data">Dirección</string>
+	<string name="label_client_contact">Contacto</string>
+	<string name="label_client_repair_strategy">Estrategia de Reparación</string>
+	
+	<string name="label_search">Buscar</string>
+	
+	<string name="hint_select_store_section">Seleccione una Sección</string>
+	<string name="label_clear_numpad">Borrar</string>
+	<string name="label_search">Buscar</string>
+	<string name="label_client">Cliente</string>
+	<string name="label_address">Dirección</string>
+	<string name="label_defaultPhoneNumber">Teléfono</string>
+	<string name="label_documentNumberID">DNI</string>
+	<string name="label_store_section_short">Sección</string>
+	<string name="label_birthdate_short">Nacimiento</string>
+	<string name="label_roadType">Tipo de Vía</string>
+	<string name="label_roadTypeName">Nombre Vía</string>
+	<string name="label_addressSegment1">Nro</string>
+	<string name="label_addressSegment2">Lote</string>
+	<string name="label_addressSegment3">Dpto</string>
+	<string name="label_addressSegment4">Sector</string>
+	<string name="label_addressSegment5">Oficina</string>
+	<string name="label_addressSegment6">Piso</string>
+	<string name="label_addressSegment7">Manzana</string>
+	<string name="label_addressSegment8">Interior</string>
+	<string name="label_addressSegment9">Kilómetro</string>
+	<string name="label_zoneType">Tipo de Zona</string>
+	<string name="label_zoneTypeName">Nombre de Zona</string>	
+	<string name="label_addressReference">Referencia</string>
+	<string name="label_livingSituation">Situación de Vivienda</string>
+	<string name="label_client_profile">Perfil</string>
+	
+	<string name="label_vendor_report_name">Asesor</string>
+	<string name="label_vendor_report_goal">Meta</string>
+	<string name="label_vendor_report_real">Real</string>
+	<string name="label_vendor_report_percent">Cump.</string>
+	<string name="label_vendor_report_title_x">Asesores</string>
+	
+	<string name="label_documentNumberID_request">Ingrese DNI</string>
+	
+	<string name="message_default_success">Operación realizada con éxito</string>
+	<string name="message_positive_financial_product_selector_finish">Se registro el producto seleccionado</string>
+	<string name="message_negative_financial_product_selector_finish">Se ha registrado el motivo</string>
+	<string name="message_validation_client_update">Por favor, revise los datos requeridos</string>
+	<string name="message_validation_select_store_section">Seleccione una Sección</string>
+	<string name="message_validation_select_financial_product_reason_not_interest">Seleccione un motivo</string>
+	<string name="message_validation_select_financial_product">Seleccione un producto</string>
+	<string name="message_no_result_message_client">Cliente no tiene mensajes</string>
+	<string name="message_title_synchronizing">Actualizando</string>
+	
+	<string name="message_financial_product_reason_not_interest">Indique el motivo de no interés en el producto</string>
+		
+	<string name="title_header_list_message">Mensajes</string>
+	<string name="title_financial_product_selector">PRODUCTOS COMERCIALES</string>
+	
+	<string name="title_vendor_report_filters">Consultar Gestión</string>
+	
+	<string name="title_activity_financial_product_selector">Cliente Financia Tu Proyecto</string>
+	<string name="title_activity_client_message">Alertas</string>
+	<string name="title_activity_client_update">Actualización de Cliente</string>
+	<string name="title_option_vendor_report">Gestión</string>
+	<string name="title_option_alerts">Ventana Comercial</string>
+	<string name="title_option_promo">Guía Digital</string>
+	<string name="title_option_change_store">Cambiar Tienda</string>
+	
+	<string name="message_confirmation_client_interested_financial_product">¿Cliente interesado en un producto?</string>
+	<string name="message_confirmation_title_sync">Sincronizar</string>
+	<string name="message_confirmation_execute_sync">Esta operación puede tomar minutos. ¿Desea continuar?</string>
+	
+	<string name="message_client_by_document_number_not_found">El Cliente con el DNI solicitado no existe</string>
+	<string name="message_prompt_client_update">¿Desea modificar los datos del cliente?</string>	
+	<string name="message_add_new_client">Registrar</string>
+	<string name="message_update_client">Actualizar</string>
+	<string name="message_cancel">No, gracias</string>
+	
+	<string name="label_goalType_Primary">Clientes Abordados</string>
+	<string name="label_goalType_Secondary">Clientes Derivados</string>
+	
+	<string-array name="array_vendorReport_goaltypes">
+		<item >Clientes Abordados</item>
+		<item >Clientes Derivados</item>
+	</string-array>
+	
+	<string-array name="array_vendorReport_recordMode">
+		<item >Diario</item>
+		<item >Mensual</item>
+	</string-array>
+	
+</resources>

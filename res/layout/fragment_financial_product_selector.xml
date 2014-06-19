@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView_title"
+        style="@style/Widget.TextView.Highlight.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_highlight_title"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="@string/title_financial_product_selector"
+        android:textColor="@color/highlight_title" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_label_financial_product_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_financial_product_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="@dimen/text_large_size"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TableRow android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_label_financial_product_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_financial_product_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/textView_label_financial_product_validity_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_financial_product_validity_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_gridview_financial_product_selector" />
+
+    <include layout="@layout/base_horizontal_line" />
+
+    <LinearLayout
+        android:id="@+id/content_confirmation_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/Widget.TextView.SecondaryHighlight.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/message_confirmation_client_interested_financial_product" >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/button_negative_confirmation"
+                style="@android:attr/buttonBarButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_bad"
+                android:text="@string/confirmation_negative" />
+
+            <Button
+                android:id="@+id/button_positive_confirmation"
+                style="@android:attr/buttonBarButtonStyle"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_action_good"
+                android:text="@string/confirmation_positive" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

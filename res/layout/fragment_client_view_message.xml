@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/SimpleContentBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/Widget.TextView.SecondaryHighlight.Medium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_client" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView_client"
+            style="@style/Widget.TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/action_accept" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/Widget.TextView.SecondaryHighlight.Medium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_address" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView_address"
+            style="@style/Widget.TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/action_accept" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/Widget.TextView.SecondaryHighlight.Medium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_defaultPhoneNumber" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView_defaultPhoneNumber"
+            style="@style/Widget.TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/action_accept" >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/Widget.TextView.SecondaryHighlight.Medium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_documentNumberID" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/textView_documentNumber"
+            style="@style/Widget.TextView.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/action_accept" >
+        </TextView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView_financialProductMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_action_about"
+            android:paddingTop="3dp"
+            android:textColor="@color/bg_highlight_title"
+            android:textStyle="bold" >
+        </TextView>
+    </FrameLayout>
+
+</LinearLayout>

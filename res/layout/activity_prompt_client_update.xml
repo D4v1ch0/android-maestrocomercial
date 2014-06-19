@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/Widget.TextView.Highlight.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/message_prompt_client_update" >
+    </TextView>
+
+   <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"        
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        >
+     
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="160dp"            
+            android:layout_height="wrap_content"                        
+            android:drawableLeft="@drawable/ic_action_cancel"
+            android:text="@string/message_cancel"
+           >
+        </Button>
+         <Button
+            android:id="@+id/button_update_client"
+            android:layout_width="160dp"            
+            android:layout_height="wrap_content"                        
+            android:drawableLeft="@drawable/ic_action_edit"
+            android:text="@string/message_update_client"
+            >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

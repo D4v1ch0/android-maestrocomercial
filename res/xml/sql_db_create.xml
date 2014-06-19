@@ -1,0 +1,126 @@
+<sql>
+    <statement>
+        CREATE TABLE tbStore(
+        _id INTEGER PRIMARY KEY AUTOINCREMENT,
+        StoreId TEXT,
+        Name TEXT
+        )
+	</statement>
+	<statement>
+        CREATE TABLE tbGeoDivision(
+        _id INTEGER PRIMARY KEY,
+        DepartmentId INTEGER,
+        Department TEXT,
+        ProvinceId INTERGER,
+        Province TEXT,
+        DistrictId INTEGER,
+        District TEXT        
+        )
+	</statement>
+    <statement>
+        CREATE TABLE tbStoreSection(
+        _id INTEGER PRIMARY KEY AUTOINCREMENT,
+        StoreSectionId INTEGER,
+        Name TEXT      
+        )
+	</statement>
+	<statement>
+	    CREATE TABLE tbClient(
+	    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+	    DocumentId TEXT,
+	    FirstName TEXT,
+	    MiddleName TEXT,
+	    LastName TEXT,
+	    SecondLastName TEXT,
+	    Address TEXT,
+	    Birthday BIGINT,
+	    PhoneNumber TEXT,
+	    CellPhone TEXT,
+	    Email TEXT,	    	 
+	    ProfileId TEXT,   	    
+	    PhoneNumber2 TEXT,
+	    CellPhone2 TEXT,
+	    RoadTypeId TEXT,
+	    RoadTypeName TEXT,
+	    ZoneTypeId TEXT,
+	    ZoneTypeName TEXT,
+	    LivingSituation TEXT,	    	    
+	    AddressSegment1 TEXT,
+	    AddressSegment2 TEXT,
+	    AddressSegment3 TEXT,
+	    AddressSegment4 TEXT,
+	    AddressSegment5 TEXT,
+	    AddressSegment6 TEXT,
+	    AddressSegment7 TEXT,
+	    AddressSegment8 TEXT,
+	    AddressSegment9 TEXT,
+	    AddressReference TEXT,	    	    
+	    GeopoliticalId INTEGER,
+	    HasFinancialProduct INTEGER,
+	    FinancialProductMessage TEXT,
+	    HasFinancialProductAlert INTEGER,
+	    FinancialProductAlertMessage TEXT,
+	    AmountFinancialProduct REAL,
+	    ValidityFinancialProductDate INTEGER,	    
+	    InternalProcessId INTEGER,
+	    FinancialProductSelectedId INTEGER,
+	    ApplyRepairStrategy INTEGER,
+	    RepairStrategyType INTEGER,
+	    RepairStrategyId TEXT,
+	    FinancialProductReasonOfNotInterest  TEXT  	       
+	    )
+	</statement>
+	<statement>
+	    CREATE TABLE tbAlert(
+		_id INTEGER PRIMARY KEY,
+		ClientId INTEGER,
+		Message TEXT     	   	   
+	    )
+	</statement>
+	<statement>
+	    CREATE TABLE tbFinancialProduct(
+		_id INTEGER PRIMARY KEY,	
+		Name TEXT
+		)
+	</statement>
+	<statement>
+	    CREATE TABLE tbClientFinancialProduct(
+		_id INTEGER PRIMARY KEY AUTOINCREMENT,
+		InternalMessageId INTEGER,
+		FinancialProductId INTEGER,
+		ClientId INTEGER,
+		IsSelected INTEGER
+		)
+	</statement>
+	<statement>
+	    CREATE TABLE tbGuideSection(
+	    _id INTEGER,	    
+	    Name TEXT	    	    	  
+	    )
+	</statement>
+	<statement>
+	    CREATE TABLE tbGuideElement(
+	    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+	    GuideElementId INTEGER,
+	    GuideSectionId INTEGER,
+	    Name TEXT,
+	    HasDetailInfo INTEGER,
+	    Secuencial INTEGER    
+	    )
+	</statement>		
+	<statement>
+	    CREATE TABLE tbVendorReport(
+	    _id INTEGER PRIMARY KEY AUTOINCREMENT,
+	    RecordMode INTEGER,
+	    GoalType INTEGER,    
+	    Day INTEGER,
+	    Month INTEGER,
+	    Year INTEGER,	    	    
+	    User TEXT, 
+	    Name TEXT,
+	    GoalValue REAL,
+	    RealValue REAL,
+	    Percent REAL
+	    )
+	</statement>	
+</sql>

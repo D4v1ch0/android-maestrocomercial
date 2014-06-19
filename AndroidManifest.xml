@@ -1,0 +1,99 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="pe.com.maestro.commercial"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="13"
+        android:targetSdkVersion="19" />
+	<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyAppTheme" >
+        <activity android:name="pe.com.maestro.commercial.MainActivity">                        
+        </activity>
+        <activity android:name="rp3.accounts.AuthenticatorActivity" android:theme="@style/BrandTheme.NoTitleBar"
+            android:windowSoftInputMode="stateHidden">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.StoreSelectorActivity"  android:theme="@style/MyAppTheme.NoTitleBar">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.ClientMessagesActivity" android:label="@string/title_activity_client_message">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.ClientNotFoundActivity" android:label="@string/title_activity_client_message"
+            android:windowSoftInputMode="stateHidden">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.FinancialProductSelectorActivity" android:label="@string/title_activity_financial_product_selector">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.FinancialProductReasonNotInterestActivity" android:label="@string/title_activity_financial_product_selector">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.RepairStrategyActivity" android:label="@string/label_client_repair_strategy">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.guide.GuideElementContentPagerActivity" android:label="@string/title_option_promo">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.guide.GuideElementDetailActivity" android:label="@string/title_option_promo">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.reports.VendorReportTabularActivity" android:label="@string/title_option_vendor_report">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.reports.VendorReportChartActivity" android:label="@string/title_option_vendor_report">                        
+        </activity>        
+        <activity android:name="pe.com.maestro.commercial.SettingsActivity" android:label="@string/action_settings">  
+            <intent-filter >
+                <action android:name="pe.com.maestro.commercial.SettingsActivity"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>                      
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.ClientEditActivity" android:label="@string/title_activity_client_update"
+            android:windowSoftInputMode="stateHidden">                        
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.client.PromptClientUpdateActivity" android:label="@string/title_activity_client_message"
+            android:windowSoftInputMode="stateHidden">                                    
+        </activity>
+        <activity android:name="pe.com.maestro.commercial.StartActivity" android:theme="@style/BrandTheme.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>            
+        </activity>
+        
+        <service android:name="rp3.accounts.AuthenticatorService" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" >
+                </action>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" >
+            </meta-data>
+        </service>
+        
+        <service
+                android:name="pe.com.maestro.commercial.sync.SyncService"
+                android:exported="true"
+                android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                    android:resource="@xml/syncadapter" />
+        </service>
+        
+        <provider
+            android:name="rp3.content.StubProvider"
+            android:authorities="pe.com.maestro.commercial.provider"
+            android:exported="false"
+            android:syncable="true" />
+        
+    </application>
+
+</manifest>

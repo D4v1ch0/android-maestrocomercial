@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/pe.com.maestro.commercial">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"        
+        android:layout_margin="10dp"
+        android:baselineAligned="false"
+        android:orientation="vertical" >
+
+        <include layout="@layout/layout_document_input_search" >
+        </include>
+
+        <rp3.widget.NumberPad
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            app:maxLength="10"
+            app:targetView="@+id/textView_client_document_id" >
+        </rp3.widget.NumberPad>
+    </LinearLayout>
+</merge>

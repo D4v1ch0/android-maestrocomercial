@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_client_message_leftright_margin">45dp</dimen>    
+    <dimen name="input_query_client_width">350dp</dimen>
+    <dimen name="financial_product_selector_margin_top">100dp</dimen>
+    <dimen name="activity_store_selector_margin_horizontal">220dp</dimen>
+    <dimen name="vendor_report_values_columns">90dp</dimen>
+    <dimen name="vendor_report_values_column_cump">130dp</dimen>
+    <dimen name="section_store_selector_width">470dp</dimen>
+</resources>

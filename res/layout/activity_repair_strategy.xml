@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="@dimen/activity_store_selector_margin_horizontal"
+    android:layout_marginRight="@dimen/activity_store_selector_margin_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/bg_highlight_title"
+        android:padding="10dp"
+        android:text="@string/label_client_repair_strategy"
+        android:textColor="@color/highlight_title" >
+    </TextView>
+
+    <LinearLayout
+        style="@style/SimpleContentBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView_repairStrategyMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@string/label_client_repair_strategy" />
+
+        <Spinner
+            android:id="@+id/spinner_cupoun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"        
+        android:text="@string/action_accept" />
+
+</LinearLayout>

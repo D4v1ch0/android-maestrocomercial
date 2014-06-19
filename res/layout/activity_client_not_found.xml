@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/Widget.TextView.Highlight.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/message_client_by_document_number_not_found" >
+    </TextView>
+
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"        
+        >
+		<Button
+            android:id="@+id/button_cancel"
+            android:layout_width="160dp"            
+            android:layout_height="wrap_content"                        
+            android:drawableLeft="@drawable/ic_action_cancel"
+            android:text="@string/message_cancel"
+            >
+        </Button>
+        <Button
+            android:id="@+id/button_add_client"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"            
+            android:drawableLeft="@drawable/ic_action_add_person"
+            android:text="@string/message_add_new_client"
+              >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

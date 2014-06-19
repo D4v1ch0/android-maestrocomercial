@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <GridView
+        android:layout_marginTop="5dp"
+        android:id="@+id/gridView_financial_product"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"                
+        android:numColumns="1" >
+    </GridView>
+
+</merge>

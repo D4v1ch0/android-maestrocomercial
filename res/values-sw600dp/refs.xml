@@ -1,0 +1,16 @@
+<resources>
+
+    <!--
+    Layout alias to replace the single-pane version of the layout with a
+    two-pane version on Large screens.
+
+    For more on layout aliases, see:
+    http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
+    -->    
+    <item name="layout_client_query" type="layout">@layout/layout_client_query_large</item>    
+    <item name="rowlist_alert" type="layout">@layout/rowlist_alert_large</item>
+    <item name="layout_gridview_financial_product_selector" type="layout">@layout/layout_gridview_financial_product_selector_large</item>
+    <item name="activity_client_messages" type="layout">@layout/activity_client_messages_large</item>
+    <item name="fragment_main_vendor_report" type="layout">@layout/fragment_main_vendor_report_large</item>
+    <item name="fragment_guide" type="layout">@layout/fragment_guide_large</item>    
+</resources>

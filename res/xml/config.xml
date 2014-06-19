@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <appConfiguration>
+        <help>www.maestro.com.pe/contactanos</help>
+        <allowSettingsOnAut>TRUE</allowSettingsOnAut>
+        <allowHelpOnAut>TRUE</allowHelpOnAut>
+    </appConfiguration>
+    <dataBaseConfiguration>       
+       <name>Rp3MaestroComercial.db</name>
+       <version>1</version>
+    </dataBaseConfiguration>        
+    <webServiceConfiguration>                
+        <webServiceData>
+            <name>soap_maestro</name>
+            <url>http://[@server:192.100.0.200]/Rp3WsPosTablet/Rp3.Maestro.Pos.asmx</url>
+            <type>SOAP</type>
+            <namespace>http://tempuri.org/</namespace>            
+            <dotNet>TRUE</dotNet>
+            <soapVersion>11</soapVersion>
+            <methods>
+                <method>
+					<name>login</name>
+					<action>http://tempuri.org/Login</action>
+					<methodId>Login</methodId>
+                </method>
+                <method>
+					<name>synchronize</name>
+					<action>http://tempuri.org/Synchronize</action>
+					<methodId>Synchronize</methodId>
+                </method>
+                <method>
+					<name>getAlerts</name>
+					<action>http://tempuri.org/GetAlerts</action>
+					<methodId>GetAlerts</methodId>
+                </method>
+                <method>
+					<name>FinancialProductSelected</name>
+					<action>http://tempuri.org/SaveFinancialProductSelected</action>
+					<methodId>SaveFinancialProductSelected</methodId>
+                </method>  
+                <method>
+					<name>SaveCustomerData</name>
+					<action>http://tempuri.org/SaveCustomerData </action>
+					<methodId>SaveCustomerData </methodId>
+                </method>
+                <method>
+					<name>VendorReport</name>
+					<action>http://tempuri.org/GetReport</action>
+					<methodId>GetReport</methodId>
+                </method>                                                  
+            </methods>                        
+        </webServiceData>
+    </webServiceConfiguration>
+</config>
