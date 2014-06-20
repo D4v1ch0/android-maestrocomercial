@@ -11,7 +11,8 @@
         android:layout_marginTop="20dp"                             
         android:layout_width="match_parent"
         android:layout_height="wrap_content"                   
-        android:gravity="center"                   
+        android:gravity="center"        
+        android:visibility="gone"           
         android:textColor="@color/guide_section_title"
         />            
    

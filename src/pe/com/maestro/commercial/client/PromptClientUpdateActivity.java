@@ -1,5 +1,6 @@
 package pe.com.maestro.commercial.client;
 
+import pe.com.maestro.commercial.MainActivity;
 import pe.com.maestro.commercial.R;
 import android.content.Context;
 import android.content.Intent;
@@ -50,6 +51,7 @@ public class PromptClientUpdateActivity extends BaseActivity {
 			public void onClick(View arg0) {
 				setResult(RESULT_CANCELED);
 				finish();
+				startActivity(MainActivity.newIntent(PromptClientUpdateActivity.this, MainActivity.NAV_MESSAGES, true));
 			}
 		});
 			
