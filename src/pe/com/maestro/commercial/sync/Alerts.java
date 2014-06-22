@@ -85,9 +85,10 @@ public abstract class Alerts {
 				client.setLastName(property.getAttributeAsString("LastName"));
 				client.setFirstName(property.getAttributeAsString("FirstName"));
 				
-				if(TextUtils.isEmpty(client.getLastName()) && TextUtils.isEmpty(client.getFirstName())){
-					break;
-				}
+				//if(!property.hasAttribute("Cellphone2")) {
+						//TextUtils.isEmpty(client.getLastName()) && TextUtils.isEmpty(client.getFirstName())){	
+					//break;
+				//}
 								
 				client.setDocumentNumber(property.getAttributeAsString("DocumentNumber"));				
 				client.setMiddleName(property.getAttributeAsString("MiddleName"));

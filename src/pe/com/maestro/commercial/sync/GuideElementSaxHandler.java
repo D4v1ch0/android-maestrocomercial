@@ -20,9 +20,11 @@ public class GuideElementSaxHandler extends DefaultHandler {
 
 	private List<GuideElement> guideElements;
 	private DataBase db;
+	private boolean updateDb;
 	
-	public GuideElementSaxHandler(DataBase db){
+	public GuideElementSaxHandler(DataBase db, boolean updateDb){
 		this.db = db;
+		this.updateDb = updateDb;
 		guideElements = new ArrayList<GuideElement>();
 	}
 
@@ -38,7 +40,9 @@ public class GuideElementSaxHandler extends DefaultHandler {
 		tempVal = "";
 		if (qName.equalsIgnoreCase("RP3ElementsByGuideSection")) {			
 			guideElement = new GuideElement();
-			GuideElement.insert(db, guideElement);
+			if(this.updateDb){
+				GuideElement.insert(db, guideElement);
+			}
 		}
 	}
 
@@ -51,8 +55,10 @@ public class GuideElementSaxHandler extends DefaultHandler {
 			throws SAXException {
 
 		if (qName.equalsIgnoreCase("RP3ElementsByGuideSection")) {			
-			guideElements.add(guideElement);		
-			GuideElement.update(db, guideElement);
+			guideElements.add(guideElement);
+			if(this.updateDb){
+				GuideElement.update(db, guideElement);
+			}
 		} else if (qName.equalsIgnoreCase("Ds")) {
 			guideElement.setName(tempVal);
 		} else if (qName.equalsIgnoreCase("IdSec")) {
@@ -64,11 +70,14 @@ public class GuideElementSaxHandler extends DefaultHandler {
 		} else if (qName.equalsIgnoreCase("ImgInfoExists")) {
 			guideElement.setHasDetailInfo(Convert.getBoolean(tempVal));
 		} else if(qName.equalsIgnoreCase("Img")){
-			FileUtils.saveInternalStorage(guideElement.getFileName(),
-					BitmapUtils.decodeBitmapFromBase64(tempVal));			
+			if(tempVal!=null && tempVal.length()>0)
+				FileUtils.saveInternalStorage(guideElement.getFileName(),
+						BitmapUtils.decodeBitmapFromBase64(tempVal));			
 		} else if(qName.equalsIgnoreCase("ImgInfo")){
-			if(guideElement.hasDetailInfo())
-				FileUtils.saveInternalStorage(guideElement.getDetailFileName(), BitmapUtils.decodeBitmapFromBase64(tempVal));			
+			if(tempVal!=null && tempVal.length()>0)
+				if(guideElement.hasDetailInfo()){
+					FileUtils.saveInternalStorage(guideElement.getDetailFileName(), BitmapUtils.decodeBitmapFromBase64(tempVal));
+				}
 		}
 	}
 

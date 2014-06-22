@@ -3,6 +3,7 @@ package pe.com.maestro.commercial.sync;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.ksoap2.serialization.PropertyInfo;
@@ -34,7 +35,11 @@ import rp3.util.FileUtils;
 
 public class Catalogs {
 
-	public static int executeSync(DataBase db, int syncType)
+	public static int executeSync(DataBase db, int syncType) throws FileNotFoundException{
+		return executeSync(db, syncType, 0);
+	}
+	
+	public static int executeSync(DataBase db, int syncType, int elementGuideId)
 			throws FileNotFoundException {
 		//android.os.Debug.waitForDebugger();
 
@@ -48,6 +53,9 @@ public class Catalogs {
 		values.put("IdEvent", 7);
 		values.put("SynchronizeImage", "True");
 		values.put("SynchronizeType", syncType);
+		
+		if(syncType == 3)
+			values.put("IdElement", elementGuideId);
 
 		SoapObject param = WebServiceUtils.getMainParam(values);
 		service.addParameter("XmlString", param);
@@ -74,15 +82,16 @@ public class Catalogs {
 			GuideSection.deleteAll(db, Contract.GuideSection.TABLE_NAME);
 			break;
 		case 3:
-			List<GuideElement> guideElements = GuideElement.getGuideElements(
-					db, null, null);
-			for (GuideElement e : guideElements) {
-				FileUtils.deleteFromInternalStorage(e.getFileName());
-				FileUtils.deleteFromInternalStorage(e.getDetailFileName());
+			if(elementGuideId==0){			
+				List<GuideElement> guideElements = GuideElement.getGuideElements(
+						db, null, null);
+				for (GuideElement e : guideElements) {
+					FileUtils.deleteFromInternalStorage(e.getFileName());
+					FileUtils.deleteFromInternalStorage(e.getDetailFileName());
+				}
+	
+				GuideElement.deleteAll(db, Contract.GuideElement.TABLE_NAME);				
 			}
-
-			GuideElement.deleteAll(db, Contract.GuideElement.TABLE_NAME);
-
 			service.setUseFileResponse(true);
 			break;
 		case 4:
@@ -118,9 +127,23 @@ public class Catalogs {
 
 				switch (syncType) {
 				case 3:
-					GuideElementParser.parse(
-							new FileInputStream(service.getFileResponse()), db);
-
+					List<GuideElement> elements = GuideElementParser.parse(
+							new FileInputStream(service.getFileResponse()), db, elementGuideId != 0);
+					
+					//GuideElement.deleteAll(db, Contract.GuideElement.TABLE_NAME);
+					//Retrieve Elements by get Image
+					if(elementGuideId==0){
+						List<Integer> ids = new ArrayList<Integer>();
+						for(GuideElement element: elements){
+							if(!ids.contains(element.getGuideElementId()))
+								ids.add(element.getGuideElementId());
+						}
+						
+						for(int element: ids){
+							executeSync(db, syncType, element);						
+						}
+					}
+					
 					break;
 				}
 

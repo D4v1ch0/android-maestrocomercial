@@ -14,14 +14,14 @@ import pe.com.maestro.commercial.models.GuideElement;
 import rp3.db.sqlite.DataBase;
 
 public class GuideElementParser {
-	public static List<GuideElement> parse(InputStream is, DataBase db) {
+	public static List<GuideElement> parse(InputStream is, DataBase db, boolean updateDb) {
 		List<GuideElement> data = null;
 		try {
 			// create a XMLReader from SAXParser
 			XMLReader xmlReader = SAXParserFactory.newInstance().newSAXParser()
 					.getXMLReader();
 			// create a SAXXMLHandler
-			GuideElementSaxHandler saxHandler = new GuideElementSaxHandler(db);
+			GuideElementSaxHandler saxHandler = new GuideElementSaxHandler(db, updateDb);
 			// store handler in XMLReader
 			xmlReader.setContentHandler(saxHandler);
 			// the process starts
