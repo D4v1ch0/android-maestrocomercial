@@ -7,7 +7,6 @@ import pe.com.maestro.accounts.MyServerAuthenticate;
 import pe.com.maestro.commercial.db.DbOpenHelper;
 import pe.com.maestro.commercial.sync.SyncAdapter;
 import rp3.configuration.Configuration;
-import rp3.configuration.PreferenceManager;
 import rp3.content.SimpleCallback;
 import rp3.data.MessageCollection;
 import rp3.sync.SyncAudit;
@@ -34,7 +33,7 @@ public class StartActivity extends rp3.app.StartActivity {
 						
 		Long days = SyncAudit.getDaysOfLastSync(SyncAdapter.SYNC_TYPE_GENERAL, SyncAdapter.SYNC_EVENT_SUCCESS);
 		
-		if(days == null || days > 0){
+		if(days == null || days > 1){
 			Bundle bundle = new Bundle();
 			bundle.putString(SyncAdapter.ARG_SYNC_TYPE, SyncAdapter.SYNC_TYPE_GENERAL);
 			requestSync(bundle);

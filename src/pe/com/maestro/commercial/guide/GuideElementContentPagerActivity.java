@@ -2,9 +2,11 @@ package pe.com.maestro.commercial.guide;
 
 import pe.com.maestro.commercial.R;
 import pe.com.maestro.commercial.guide.GuideElementContentPagerFragment.GuideElementChangeListener;
+import pe.com.maestro.commercial.models.GuideElement;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import rp3.app.BaseActivity;
 
@@ -14,6 +16,8 @@ public class GuideElementContentPagerActivity extends BaseActivity implements Gu
 	public static final String EXTRA_GUIDE_ELEMENT_ID = "elementGuideId";
 	
 	private long currentGuideElementID = -1;
+	private MenuItem menuDetailInfo;
+	private GuideElement currentElement;
 	
 	public static Intent newIntent(Context c, long sectionId, int elementGuideId){
 		Intent i = new Intent(c, GuideElementContentPagerActivity.class);
@@ -40,6 +44,17 @@ public class GuideElementContentPagerActivity extends BaseActivity implements Gu
 	}
 	
 	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {		
+		super.onCreateOptionsMenu(menu);
+		menuDetailInfo = menu.findItem(R.id.action_labels);
+		if(currentElement!=null)
+			menuDetailInfo.setVisible(currentElement.hasDetailInfo());
+		return true;		
+	}
+	
+	
+	
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {		
 		super.onOptionsItemSelected(item);
 		
@@ -58,8 +73,10 @@ public class GuideElementContentPagerActivity extends BaseActivity implements Gu
 	}
 
 	@Override
-	public void onCurrentElementChange(long id) {
-		currentGuideElementID = id;		
+	public void onCurrentElementChange(GuideElement element, long id) {
+		currentGuideElementID = id;
+		currentElement = element;
+		this.invalidateOptionsMenu();		
 	}
 	
 	

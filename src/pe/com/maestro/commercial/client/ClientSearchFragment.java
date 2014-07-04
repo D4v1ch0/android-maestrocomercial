@@ -9,6 +9,7 @@ import pe.com.maestro.commercial.sync.Alerts;
 import pe.com.maestro.commercial.sync.SyncAdapter;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import rp3.app.BaseFragment;
@@ -64,13 +65,17 @@ public class ClientSearchFragment extends BaseFragment {
 			@Override
 			public void onClick(View arg0) {	
 				
+				documentNumberSearch = getTextViewString(R.id.textView_client_document_id);
+				
 				if(getSpinnerSelectedIntID(R.id.spinner_store)==-1){
 					showDialogMessage(R.string.message_validation_select_store_section);
-				}
-				else{
+				}else if(TextUtils.isEmpty(documentNumberSearch)){
+					showDialogMessage(R.string.message_validation_dni_query_required);
+				}else if(documentNumberSearch.length()!=8){
+					showDialogMessage(R.string.message_validation_document_number_length_invalid);
+				}else{
 					showDialogProgress(R.string.message_title_query, R.string.message_please_wait);
-					documentNumberSearch = getTextViewString(R.id.textView_client_document_id);
-					
+										
 					Bundle bundle = new Bundle();
 					bundle.putString(SyncAdapter.ARG_SYNC_TYPE, SyncAdapter.SYNC_TYPE_ALERT);
 					bundle.putString(Alerts.ARG_CLIENT_DOCUMENT_NUMBER, documentNumberSearch);				

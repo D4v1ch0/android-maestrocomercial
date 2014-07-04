@@ -2,7 +2,9 @@ package pe.com.maestro.commercial.guide;
 
 import pe.com.maestro.commercial.R;
 import pe.com.maestro.commercial.guide.GuideElementContentPagerFragment.GuideElementChangeListener;
+import pe.com.maestro.commercial.models.GuideElement;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ public class MainGuideFragment extends BaseFragment implements GuideSectionFragm
 	private GuideSectionFragment guideSectionFragment;
 	private GuideElementContentPagerFragment guideElementContentPagerFragment;
 	private ViewGroup viewGroupSection;
+	private MenuItem menuDetailInfo;
+	private GuideElement currentElement;
 	
 	private boolean twoPane = false;
 	private long currentGuideElementID = -1;
@@ -47,6 +51,14 @@ public class MainGuideFragment extends BaseFragment implements GuideSectionFragm
 			twoPane = true;			
 			viewGroupSection = (ViewGroup) rootView.findViewById(R.id.content_guideSection);				
 		}							
+	}
+	
+	@Override
+	public void onAfterCreateOptionsMenu(Menu menu) {		
+		super.onAfterCreateOptionsMenu(menu);
+		menuDetailInfo = menu.findItem(R.id.action_labels);
+		if(currentElement!=null)
+			menuDetailInfo.setVisible(currentElement.hasDetailInfo());
 	}
 	
 	@Override
@@ -87,18 +99,21 @@ public class MainGuideFragment extends BaseFragment implements GuideSectionFragm
 	
 	@Override
 	public void onSelectedSection(long guideSectionId, int headerGuideElementId) {		
-		if(twoPane){
+		if(twoPane){									
 			hideSection();
 			guideElementContentPagerFragment = GuideElementContentPagerFragment.newInstance(guideSectionId, headerGuideElementId);
-			setFragment(R.id.content_guideElement, guideElementContentPagerFragment);			
+			setFragment(R.id.content_guideElement, guideElementContentPagerFragment);
+						
 		}else {
 			startActivity( GuideElementContentPagerActivity.newIntent(this.getContext(), guideSectionId, headerGuideElementId) );
-		}
+		}		
 	}
 
 	@Override
-	public void onCurrentElementChange(long id) {
-		currentGuideElementID = id;
+	public void onCurrentElementChange(GuideElement element, long id) {
+		currentGuideElementID = id;		
+		currentElement = element;
+		this.getActivity().invalidateOptionsMenu();
 	}
 	
 }

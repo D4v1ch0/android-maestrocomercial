@@ -22,7 +22,7 @@ public class GuideElementContentPagerFragment extends BaseFragment {
 	private GuideElementChangeListener guideElementChangeCallback;
 	
 	public interface GuideElementChangeListener{
-		public void onCurrentElementChange(long id);
+		public void onCurrentElementChange(GuideElement element, long id);
 	}
 	
 	
@@ -68,7 +68,7 @@ public class GuideElementContentPagerFragment extends BaseFragment {
 		
 		if(elements.size()>0){
 			GuideElement element = elements.get(0);
-			guideElementChangeCallback.onCurrentElementChange(element.getID());
+			guideElementChangeCallback.onCurrentElementChange(element, element.getID());
 		}
 		
 		pager.setOnPageChangeListener(new OnPageChangeListener() {
@@ -78,7 +78,7 @@ public class GuideElementContentPagerFragment extends BaseFragment {
 				if(pos>=0){
 					GuideElement element = elements.get(pos);
 					if(element!=null)
-						guideElementChangeCallback.onCurrentElementChange(element.getID());
+						guideElementChangeCallback.onCurrentElementChange(element, element.getID());
 				}
 			}
 			

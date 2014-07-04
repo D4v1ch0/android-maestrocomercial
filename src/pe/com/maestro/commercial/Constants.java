@@ -4,6 +4,7 @@ public abstract class Constants {
 	
 	public static final String PREF_DEFAULT_STORE_SECTION_ID = "DEFAULT_STORE_SECTION_ID";
 	public static final String PREF_DEFAULT_STORE_ID = "default_store_id";
+	public static final String PREF_REQUEST_GUIDE_SYNC = "required";
 	public static final String PREF_DEFAULT_GEOPOLITICAL_ID = "DEFAULT_GEOPOLITICAL_ID";
 	
 	public static final long GENERAL_TABLE_ROADTYPE = 2502;

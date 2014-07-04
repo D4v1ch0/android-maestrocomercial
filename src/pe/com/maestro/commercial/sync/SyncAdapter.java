@@ -15,6 +15,7 @@ public class SyncAdapter extends rp3.content.SyncAdapter {
 	
 	public static String SYNC_TYPE_GENERAL = "general";
 	public static String SYNC_TYPE_ALERT = "alert";
+	public static String SYNC_TYPE_GUIDE = "guide";
 	public static String SYNC_TYPE_UPDATE_CLIENT = "updateclient";
 	public static String SYNC_TYPE_VENDOR_REPORT = "vendorreport";
 	
@@ -44,13 +45,17 @@ public class SyncAdapter extends rp3.content.SyncAdapter {
 				result = Catalogs.executeSync(db,1);
 				addDefaultMessage(result);
 				
+				boolean includeImages = extras.getBoolean(Catalogs.ARG_INCLUDE_GUIDES, false);
+				
 				if(result == SYNC_EVENT_SUCCESS){
 					result = Catalogs.executeSync(db,2);
 				    addDefaultMessage(result);
-				}
-				if(result == SYNC_EVENT_SUCCESS){
-					result = Catalogs.executeSync(db,3);				
-					addDefaultMessage(result);
+				}				
+				if(includeImages){
+					if(result == SYNC_EVENT_SUCCESS){
+						result = Catalogs.executeSync(db,3);
+					    addDefaultMessage(result);
+					}
 				}
 				if(result == SYNC_EVENT_SUCCESS){
 					result = Catalogs.executeSync(db,4);
@@ -65,6 +70,15 @@ public class SyncAdapter extends rp3.content.SyncAdapter {
 					db.commitTransaction();
 				else
 					db.rollBackTransaction();	
+				
+			} else if( syncType.equals(SYNC_TYPE_GUIDE) ){				
+				
+				db.beginTransaction();
+				
+				result = Catalogs.executeSync(db,3);
+				addDefaultMessage(result);				
+				
+				db.commitTransaction();			
 				
 			} else if( syncType.equals(SYNC_TYPE_ALERT) ){
 				String clientDocumentId = extras.getString(Alerts.ARG_CLIENT_DOCUMENT_NUMBER);

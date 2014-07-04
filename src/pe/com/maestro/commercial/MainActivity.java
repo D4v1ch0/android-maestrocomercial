@@ -7,6 +7,7 @@ import pe.com.maestro.commercial.client.ClientSearchFragment;
 import pe.com.maestro.commercial.guide.MainGuideFragment;
 import pe.com.maestro.commercial.models.Store;
 import pe.com.maestro.commercial.reports.MainVendorReportFragment;
+import pe.com.maestro.commercial.sync.Catalogs;
 import pe.com.maestro.commercial.sync.SyncAdapter;
 
 import rp3.app.NavActivity;
@@ -106,7 +107,16 @@ public class MainActivity extends rp3.app.NavActivity implements StoreSelectorCh
 			setNavFragment(new ClientSearchFragment(), item.getTitle());
 			break;
 		case NAV_PROMO:
-			setNavFragment( MainGuideFragment.newInstance() , item.getTitle() );
+			
+			if(PreferenceManager.getBoolean(Constants.PREF_REQUEST_GUIDE_SYNC)){
+				showDialogProgress(R.string.message_title_synchronizing, R.string.message_please_wait);		
+				Bundle data = new Bundle();
+				data.putString(SyncAdapter.ARG_SYNC_TYPE, SyncAdapter.SYNC_TYPE_GUIDE);
+				requestSync(data);
+			}else{
+				setNavFragment( MainGuideFragment.newInstance(), item.getTitle() );
+			}															
+			
 			break;
 		case NAV_SYNC:			
 			showDialogConfirmation(DIALOG_SYNC, R.string.message_confirmation_execute_sync, R.string.message_confirmation_title_sync);			
@@ -138,6 +148,7 @@ public class MainActivity extends rp3.app.NavActivity implements StoreSelectorCh
 			showDialogProgress(R.string.message_title_synchronizing, R.string.message_please_wait);			
 			Bundle bundle = new Bundle();
 			bundle.putString(SyncAdapter.ARG_SYNC_TYPE, SyncAdapter.SYNC_TYPE_GENERAL);
+			bundle.putBoolean(Catalogs.ARG_INCLUDE_GUIDES, true);
 			requestSync(bundle);
 		}
 	}
@@ -152,14 +163,17 @@ public class MainActivity extends rp3.app.NavActivity implements StoreSelectorCh
 				showDialogMessage(messages);
 			}else{
 				reset();
-			}
-			
+			}			
+		}else if(data.getString(SyncAdapter.ARG_SYNC_TYPE).equals(SyncAdapter.SYNC_TYPE_GUIDE)){
+			PreferenceManager.setValue(Constants.PREF_REQUEST_GUIDE_SYNC, false);
+			reset();
 		}
 	}
 
 	@Override
 	public void onChangeStore() {
 		setStoreSubtitle();
+		PreferenceManager.setValue(Constants.PREF_REQUEST_GUIDE_SYNC, true);
 		reset();
 	}
 }

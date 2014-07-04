@@ -104,6 +104,8 @@ public class GuideElement extends rp3.data.entity.EntityBase<GuideElement> {
 		return "S_I" + String.valueOf(this.id);
 	}
 	
+	
+	
 	public static List<GuideElement> getHeadersGuideElements(DataBase db){
 		List<GuideElement> elements = new ArrayList<GuideElement>();		
 		

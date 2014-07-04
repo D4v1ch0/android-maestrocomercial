@@ -25,6 +25,7 @@ import pe.com.maestro.commercial.models.StoreSection;
 
 import android.content.ContentValues;
 import android.util.Log;
+import rp3.configuration.PreferenceManager;
 import rp3.connection.WebService;
 import rp3.data.models.GeneralValue;
 import rp3.db.sqlite.DataBase;
@@ -35,6 +36,8 @@ import rp3.util.FileUtils;
 
 public class Catalogs {
 
+	public static final String ARG_INCLUDE_GUIDES = "includeguides";
+	
 	public static int executeSync(DataBase db, int syncType) throws FileNotFoundException{
 		return executeSync(db, syncType, 0);
 	}
@@ -53,6 +56,7 @@ public class Catalogs {
 		values.put("IdEvent", 7);
 		values.put("SynchronizeImage", "True");
 		values.put("SynchronizeType", syncType);
+		values.put("IdStore", PreferenceManager.getString(Constants.PREF_DEFAULT_STORE_ID));
 		
 		if(syncType == 3)
 			values.put("IdElement", elementGuideId);

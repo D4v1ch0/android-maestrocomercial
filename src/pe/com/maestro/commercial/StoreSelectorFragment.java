@@ -5,6 +5,7 @@ import pe.com.maestro.commercial.models.Store;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.SimpleCursorAdapter;
@@ -67,8 +68,11 @@ public class StoreSelectorFragment extends BaseFragment {
 			@Override
 			public void onClick(View arg0) {				
 				if(getSpinnerSelectedIntID(R.id.spinner_store) != 0){
-					String storeId = getSpinnerSelectedFieldCursor(R.id.spinner_store, Contract.Store.FIELD_STOREID);				
-					PreferenceManager.setValue(Constants.PREF_DEFAULT_STORE_ID, storeId);					
+					String storeId = getSpinnerSelectedFieldCursor(R.id.spinner_store, Contract.Store.FIELD_STOREID);
+					if(!TextUtils.isEmpty(storeId) && !storeId.equals(PreferenceManager.getString(Constants.PREF_DEFAULT_STORE_ID)))
+						PreferenceManager.setValue(Constants.PREF_REQUEST_GUIDE_SYNC, true);
+						
+					PreferenceManager.setValue(Constants.PREF_DEFAULT_STORE_ID, storeId);												
 				}
 				
 				if(isDialog())
@@ -79,6 +83,8 @@ public class StoreSelectorFragment extends BaseFragment {
 			}
 		});
 	}
+	
+	
 	
 	
 	

@@ -70,8 +70,10 @@
 	<string name="message_positive_financial_product_selector_finish">Se registro el producto seleccionado</string>
 	<string name="message_negative_financial_product_selector_finish">Se ha registrado el motivo</string>
 	<string name="message_validation_client_update">Por favor, revise los datos requeridos</string>
+	<string name="message_validation_dni_query_required">Ingrese el DNI a consultar</string>
 	<string name="message_validation_select_store_section">Seleccione una Sección</string>
 	<string name="message_validation_select_financial_product_reason_not_interest">Seleccione un motivo</string>
+	<string name="message_validation_document_number_length_invalid">Longitud incorrecta para el DNI</string>
 	<string name="message_validation_select_financial_product">Seleccione un producto</string>
 	<string name="message_no_result_message_client">Cliente no tiene mensajes</string>
 	<string name="message_title_synchronizing">Actualizando</string>
