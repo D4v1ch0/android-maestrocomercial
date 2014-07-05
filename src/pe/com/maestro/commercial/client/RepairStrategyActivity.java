@@ -91,7 +91,7 @@ public class RepairStrategyActivity extends BaseActivity {
 				
 				@Override
 				public void onExecute(Object... params) {
-					close();
+					
 				}
 			});
 		}else {

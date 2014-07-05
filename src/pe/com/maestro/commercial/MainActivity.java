@@ -15,6 +15,7 @@ import rp3.app.nav.NavItem;
 import rp3.configuration.PreferenceManager;
 import rp3.data.MessageCollection;
 import rp3.runtime.Session;
+import rp3.util.Screen;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -60,6 +61,9 @@ public class MainActivity extends rp3.app.NavActivity implements StoreSelectorCh
 			
 			setStoreSubtitle();
 		}
+		
+		if(Screen.isMinLargeLayoutSize(this))
+			setSlindigEnabled(false);
 		
 		showNavHeader(true);
 		setNavHeaderTitle(Session.getUser().getLogonName());		
