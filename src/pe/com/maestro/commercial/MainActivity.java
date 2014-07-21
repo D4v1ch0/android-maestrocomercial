@@ -169,6 +169,7 @@ public class MainActivity extends rp3.app.NavActivity implements StoreSelectorCh
 				reset();
 			}			
 		}else if(data.getString(SyncAdapter.ARG_SYNC_TYPE).equals(SyncAdapter.SYNC_TYPE_GUIDE)){
+			closeDialogProgress();
 			PreferenceManager.setValue(Constants.PREF_REQUEST_GUIDE_SYNC, false);
 			reset();
 		}
