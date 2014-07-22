@@ -74,9 +74,14 @@ public class SyncAdapter extends rp3.content.SyncAdapter {
 			} else if( syncType.equals(SYNC_TYPE_GUIDE) ){				
 				
 				db.beginTransaction();
-				
-				result = Catalogs.executeSync(db,3);
+								
+				result = Catalogs.executeSync(db,2);
 				addDefaultMessage(result);				
+				
+				if(result == SYNC_EVENT_SUCCESS){
+					result = Catalogs.executeSync(db,3);
+					addDefaultMessage(result);		
+				}
 				
 				db.commitTransaction();			
 				
