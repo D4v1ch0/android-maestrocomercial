@@ -3,8 +3,12 @@ package pe.com.maestro.commercial;
 import java.util.List;
 
 import pe.com.maestro.commercial.models.Store;
+import rp3.configuration.PreferenceManager;
+import rp3.runtime.Session;
+import android.content.Intent;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.Preference;
 
 public class SettingsFragment extends rp3.configuration.SettingsFragment {
 
@@ -38,5 +42,20 @@ public class SettingsFragment extends rp3.configuration.SettingsFragment {
             closeDataBase();
         }
 	}
+	
+	@Override
+	public void onPreferenceChanged(Preference pref) {		
+		super.onPreferenceChanged(pref);
+		
+		if(pref.getKey().equals("server")){
+			if(Session.IsLogged()){
+				Session.logOut();				
+				startActivity( new Intent(this.getActivity(), StartActivity.class));
+				getActivity().finish();
+			}
+			pref.setSummary(PreferenceManager.getString(pref.getKey()));
+		}
+		
+	}	
 	
 }

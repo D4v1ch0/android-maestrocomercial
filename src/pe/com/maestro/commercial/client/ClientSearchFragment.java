@@ -42,17 +42,21 @@ public class ClientSearchFragment extends BaseFragment {
 		//setTextViewText(R.id.textView_client_document_id, "08941797");
 		final List<StoreSection> sections = StoreSection.getStoreSections(getDataBase());
 				
+		SimpleDictionary sectionList = SimpleDictionary.getFromIdentifiables(sections, true, 
+				R.string.hint_select_store_section);
+		
 		setSpinnerAdapter(R.id.spinner_store, new SimpleDictionaryAdapter(this.getActivity(), 
-				SimpleDictionary.getFromIdentifiables(sections, true, R.string.hint_select_store_section)));				
+				sectionList));				
 		
 		setViewOnItemSelectedListener(R.id.spinner_store, new AdapterView.OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int pos, long id) {
-				
-				StoreSection s = sections.get(pos);
-				if(s.getID() != -1)
-					PreferenceManager.setValue(Constants.PREF_DEFAULT_STORE_SECTION_ID, s.getStoreSectionId());
+				if(pos>0){
+					StoreSection s = sections.get(pos-1); //item en blanco
+					if(s.getID() != -1)
+						PreferenceManager.setValue(Constants.PREF_DEFAULT_STORE_SECTION_ID, s.getStoreSectionId());
+				}								
 			}
 
 			@Override
