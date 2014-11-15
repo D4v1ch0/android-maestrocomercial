@@ -5,22 +5,19 @@ import java.io.IOException;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.transport.HttpResponseException;
-import org.xmlpull.v1.XmlPullParserException;
 
 import pe.com.maestro.commercial.Constants;
 import pe.com.maestro.commercial.db.Contract;
-import pe.com.maestro.commercial.models.ClientFinancialProduct;
 import pe.com.maestro.commercial.models.Alert;
 import pe.com.maestro.commercial.models.Client;
-
-import android.content.ContentValues;
-import android.text.TextUtils;
+import pe.com.maestro.commercial.models.ClientFinancialProduct;
 import rp3.configuration.PreferenceManager;
 import rp3.connection.WebService;
 import rp3.data.models.GeneralValue;
 import rp3.db.sqlite.DataBase;
 import rp3.runtime.Session;
 import rp3.util.Convert;
+import android.content.ContentValues;
 
 public abstract class Alerts {
 	
@@ -47,10 +44,10 @@ public abstract class Alerts {
 		try {
 			service.invokeWebService();
 		} catch (HttpResponseException e) {
-			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
+			return SyncAdapter.SYNC_EVENT_HTTP_ERROR;
 		} catch (IOException e) {
 			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
-		} catch (XmlPullParserException e) {
+		} catch (Exception e) {
 			return SyncAdapter.SYNC_EVENT_ERROR;
 		}
 		

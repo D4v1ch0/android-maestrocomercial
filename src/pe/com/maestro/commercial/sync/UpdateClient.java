@@ -4,17 +4,16 @@ import java.io.IOException;
 
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.transport.HttpResponseException;
-import org.xmlpull.v1.XmlPullParserException;
 
 import pe.com.maestro.commercial.Constants;
 import pe.com.maestro.commercial.models.Client;
-import android.content.ContentValues;
-import android.os.Bundle;
 import rp3.configuration.PreferenceManager;
 import rp3.connection.WebService;
 import rp3.db.sqlite.DataBase;
 import rp3.runtime.Session;
 import rp3.util.Format;
+import android.content.ContentValues;
+import android.os.Bundle;
 
 public abstract class UpdateClient {
 	
@@ -74,10 +73,10 @@ public abstract class UpdateClient {
 		try {
 			service.invokeWebService();
 		} catch (HttpResponseException e) {
-			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
+			return SyncAdapter.SYNC_EVENT_HTTP_ERROR;
 		} catch (IOException e) {
 			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
-		} catch (XmlPullParserException e) {
+		} catch (Exception e) {
 			return SyncAdapter.SYNC_EVENT_ERROR;
 		}
 		

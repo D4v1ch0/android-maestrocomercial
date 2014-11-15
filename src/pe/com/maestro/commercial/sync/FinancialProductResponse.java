@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.transport.HttpResponseException;
-import org.xmlpull.v1.XmlPullParserException;
 
 import pe.com.maestro.commercial.Constants;
 import pe.com.maestro.commercial.models.Client;
@@ -51,10 +50,10 @@ public abstract class FinancialProductResponse {
 		try {
 			service.invokeWebService();
 		} catch (HttpResponseException e) {
-			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
+			return SyncAdapter.SYNC_EVENT_HTTP_ERROR;
 		} catch (IOException e) {
 			return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
-		} catch (XmlPullParserException e) {
+		} catch (Exception e) {
 			return SyncAdapter.SYNC_EVENT_ERROR;
 		}
 		

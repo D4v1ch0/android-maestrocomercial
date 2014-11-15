@@ -9,22 +9,18 @@ import java.util.List;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.transport.HttpResponseException;
-import org.xmlpull.v1.XmlPullParserException;
 
 import pe.com.maestro.commercial.Constants;
 import pe.com.maestro.commercial.db.Contract;
-import pe.com.maestro.commercial.models.FinancialProduct;
 import pe.com.maestro.commercial.models.Alert;
 import pe.com.maestro.commercial.models.Client;
 import pe.com.maestro.commercial.models.ClientFinancialProduct;
+import pe.com.maestro.commercial.models.FinancialProduct;
 import pe.com.maestro.commercial.models.GeoDivision;
 import pe.com.maestro.commercial.models.GuideElement;
 import pe.com.maestro.commercial.models.GuideSection;
 import pe.com.maestro.commercial.models.Store;
 import pe.com.maestro.commercial.models.StoreSection;
-
-import android.content.ContentValues;
-import android.util.Log;
 import rp3.configuration.PreferenceManager;
 import rp3.connection.WebService;
 import rp3.data.models.GeneralValue;
@@ -33,6 +29,8 @@ import rp3.runtime.Session;
 import rp3.util.BitmapUtils;
 import rp3.util.Convert;
 import rp3.util.FileUtils;
+import android.content.ContentValues;
+import android.util.Log;
 
 public class Catalogs {
 
@@ -118,11 +116,11 @@ public class Catalogs {
 				service.invokeWebService();
 			} catch (HttpResponseException e) {
 				Log.e("Catalogs Http", e.getMessage());
-				return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
+				return SyncAdapter.SYNC_EVENT_HTTP_ERROR;
 			} catch (IOException e) {
 				Log.e("Catalogs IO", e.getMessage());
 				return SyncAdapter.SYNC_EVENT_CONNECTION_FAILED;
-			} catch (XmlPullParserException e) {
+			} catch (Exception e) {
 				Log.e("Catalogs Parser", e.getMessage());
 				return SyncAdapter.SYNC_EVENT_ERROR;
 			}
