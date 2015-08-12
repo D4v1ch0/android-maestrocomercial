@@ -32,7 +32,8 @@ public abstract class FinancialProductResponse {
 		values.put("IdCashier", Session.getUser().getLogonName());
 		values.put("DocumentNumber", client.getDocumentNumber());
 		values.put("IdStore", PreferenceManager.getString(Constants.PREF_DEFAULT_STORE_ID));
-		values.put("StoreSection", PreferenceManager.getInt(Constants.PREF_DEFAULT_STORE_SECTION_ID));		
+		values.put("StoreSection", PreferenceManager.getInt(Constants.PREF_DEFAULT_STORE_SECTION_ID));
+        values.put("CodigoDerivacion", PreferenceManager.getString(Constants.PREF_CODIGO_DERIVACION));
 		
 		ClientFinancialProduct fp = client.getClientFinancialProductSelected();
 		

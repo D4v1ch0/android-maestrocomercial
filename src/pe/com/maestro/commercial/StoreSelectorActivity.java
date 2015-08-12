@@ -1,6 +1,7 @@
 package pe.com.maestro.commercial;
 
 import pe.com.maestro.commercial.StoreSelectorFragment.StoreSelectorChange;
+import pe.com.maestro.commercial.db.DbOpenHelper;
 import pe.com.maestro.commercial.sync.SyncAdapter;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import rp3.app.BaseActivity;
 import rp3.configuration.PreferenceManager;
 import rp3.data.MessageCollection;
+import rp3.runtime.Session;
 import rp3.sync.SyncAudit;
 
 public class StoreSelectorActivity extends BaseActivity implements StoreSelectorChange {
@@ -19,7 +21,9 @@ public class StoreSelectorActivity extends BaseActivity implements StoreSelector
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {		
-		super.onCreate(savedInstanceState);			
+		super.onCreate(savedInstanceState);
+        Session.Start(this);
+        rp3.configuration.Configuration.reinitializeConfiguration(this, DbOpenHelper.class);
 		
 		setContentView(R.layout.layout_simple_content);
 		

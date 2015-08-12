@@ -23,7 +23,7 @@ public abstract class Alerts {
 	
 	public static final String ARG_CLIENT_DOCUMENT_NUMBER = "client_document_Number";
 	
-	public static int executeSync(DataBase db, String clientDocumentNumber) {
+	public static int executeSync(DataBase db, String clientDocumentNumber, String derivationCode) {
 		//android.os.Debug.waitForDebugger();
 		WebService service = new WebService();
 		service.setConfigurationName("soap_maestro", "GetAlerts");
@@ -36,6 +36,7 @@ public abstract class Alerts {
 		values.put("DocumentNumber", clientDocumentNumber);
 		values.put("IdStore", PreferenceManager.getString(Constants.PREF_DEFAULT_STORE_ID));
 		values.put("StoreSection", PreferenceManager.getInt(Constants.PREF_DEFAULT_STORE_SECTION_ID));
+        values.put("CodigoDerivacion", derivationCode);
 		
 		SoapObject param = WebServiceUtils.getMainParam(values);		
 		service.addParameter("XmlString", param);

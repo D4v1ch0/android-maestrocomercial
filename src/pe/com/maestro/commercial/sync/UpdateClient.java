@@ -63,6 +63,7 @@ public abstract class UpdateClient {
 		values.put("Segmento8", client.getAddressSegment8());
 		values.put("Segmento9", client.getAddressSegment9());
 		values.put("Referencia", client.getAddressReference());
+        values.put("CodigoDerivacion", PreferenceManager.getString(Constants.PREF_CODIGO_DERIVACION));
 		
 		values.put("Rp3RepairStrategyCouponType", client.getRepairStrategyType());
 		values.put("Rp3RepairStrategyCouponId", client.getRepairStrategyId());

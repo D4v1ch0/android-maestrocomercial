@@ -1,6 +1,7 @@
 package pe.com.maestro.commercial.sync;
 
 
+import pe.com.maestro.commercial.Constants;
 import pe.com.maestro.commercial.db.DbOpenHelper;
 import rp3.db.sqlite.DataBase;
 import rp3.sync.SyncAudit;
@@ -87,10 +88,11 @@ public class SyncAdapter extends rp3.content.SyncAdapter {
 				
 			} else if( syncType.equals(SYNC_TYPE_ALERT) ){
 				String clientDocumentId = extras.getString(Alerts.ARG_CLIENT_DOCUMENT_NUMBER);
+                String derivationCode = extras.getString(Constants.ARG_CODIGO_DERIVACION);
 				
 				db.beginTransaction();
 								
-				result = Alerts.executeSync(db,clientDocumentId);
+				result = Alerts.executeSync(db,clientDocumentId,derivationCode);
 				addDefaultMessage(result);				
 				
 				db.commitTransaction();								

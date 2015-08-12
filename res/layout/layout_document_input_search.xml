@@ -24,7 +24,25 @@
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             style="@style/Widget.TextView.ReadOnly.Large"
-             />
+            android:clickable="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="@string/label_derivationCode_request"
+            android:gravity="center"
+            style="@style/Widget.TextView.Highlight.Medium"
+            >
+
+        </TextView>
+
+        <TextView
+            style="@style/Widget.TextView.ReadOnly.Large"
+            android:id="@+id/textView_client_codigo_derivacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:clickable="true" />
 
         <Button
             android:id="@+id/button_query"

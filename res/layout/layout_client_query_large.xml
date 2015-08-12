@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/pe.com.maestro.commercial" >
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -39,7 +39,8 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:targetView="@+id/textView_client_document_id" >
+                app:targetView="@+id/textView_client_document_id"
+                android:id="@+id/number_pad_search">
             </rp3.widget.NumberPad>
         </FrameLayout>
     </LinearLayout>

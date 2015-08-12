@@ -30,8 +30,6 @@
 	<string name="label_client_contact">Contacto</string>
 	<string name="label_client_repair_strategy">Estrategia de Reparación</string>
 	
-	<string name="label_search">Buscar</string>
-	
 	<string name="hint_select_store_section">Seleccione una Sección</string>
 	<string name="label_clear_numpad">Borrar</string>
 	<string name="label_search">Buscar</string>
@@ -65,6 +63,7 @@
 	<string name="label_vendor_report_title_x">Asesores</string>
 	
 	<string name="label_documentNumberID_request">Ingrese DNI</string>
+    <string name="label_derivationCode_request">Código de Derivación</string>
 	
 	<string name="message_default_success">Operación realizada con éxito</string>
 	<string name="message_positive_financial_product_selector_finish">Se registro el producto seleccionado</string>

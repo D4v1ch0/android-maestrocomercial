@@ -87,10 +87,12 @@ public class MainGuideFragment extends BaseFragment implements GuideSectionFragm
 	}
 	
 	private void expandCollapseSection(){
-		if(viewGroupSection.getVisibility() == View.VISIBLE)
-			viewGroupSection.setVisibility(View.GONE);
-		else
-			viewGroupSection.setVisibility(View.VISIBLE);
+        if(viewGroupSection != null) {
+            if (viewGroupSection.getVisibility() == View.VISIBLE)
+                viewGroupSection.setVisibility(View.GONE);
+            else
+                viewGroupSection.setVisibility(View.VISIBLE);
+        }
 	}
 	
 	private void hideSection(){		
